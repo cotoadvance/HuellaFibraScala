@@ -40,7 +40,7 @@ object Proceso {
 
     // PATHS
 
-    val conformadoBasePath = "/modelos/producto_asignado/huella_fibra_b2b/"
+    val conformadoBasePath = "/modelos/producto_asignado/huella_fibra_b2b/conformado"
     val conformadoFullPath = s"$conformadoBasePath/year=$processYear/month=$processMonth/day=$processDay"
 
     val inventarioActualBasePath = "/apps/hive/warehouse/stg_prospectos.db/inventario_osp_actual_norm_full/"
