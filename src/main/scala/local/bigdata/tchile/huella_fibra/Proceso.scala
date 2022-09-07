@@ -46,15 +46,17 @@ object Proceso {
     val inventarioActualBasePath = "/apps/hive/warehouse/stg_prospectos.db/inventario_osp_actual_norm_full/"
     val inventarioActualPath = fs.listStatus(new Path(inventarioActualBasePath)).filter(_.isDirectory()).map(_.getPath.toString).sortWith(_ > _)(0)
     val direccionesNormalizadasPath = "/warehouse/staging/datalakeb2b/fil_direcciones_normalizadas"
-    val parqueFijoSuscriptorProductoPath = s"/modelos/producto_asignado/parque_fijo_suscriptor_producto_cg/conformado/year=$processYear/month=$processMonth"
+    val parqueFijoSuscriptorProductoBasePath = "/modelos/producto_asignado/parque_fijo_suscriptor_producto_cg/conformado"
+    val parqueFijoSuscriptorProductoLastYear = fs.listStatus(new Path(parqueFijoSuscriptorProductoBasePath)).filter(_.isDirectory()).map(_.getPath.toString).sortWith(_ > _)(0)
+    val parqueFijoSuscriptorProductoPath = fs.listStatus(new Path(parqueFijoSuscriptorProductoLastYear)).filter(_.isDirectory()).map(_.getPath.toString).sortWith(_ > _)(0)
     val competenciaFibraOpticaPath = s"/modelos/gestion_recursos/competencia_fibra_optica/year=$processYear/month=$processMonth"
     val estadoProyectoAvbaPath = "/modelos/gestion_recursos/estado_proyecto_avba/conformado"
     val segmentoPath = s"/data/clientes/segmento_empresas/b2b/salesforce/empresa/raw_sgm_v3/conformado/year=$processYear/month=$processMonth"
     val razonesSocialesPath = "/data/ventas/preventa_empresas/b2b/salesforce/contactabilidad/raw_eqx_razones_sociales"
     val carteraEmpresasPath = "/warehouse/staging/datalakeb2b/fil_cartera_empresa_v2"
     val tenenciaFijaMovilBasePath = "/data/parque_asignado/parque/b2b/scel/tenenciaFijoMovil/conformado"
-    val tenenciaFijaMovilBaseLastYear = fs.listStatus(new Path(tenenciaFijaMovilBasePath)).filter(_.isDirectory()).map(_.getPath.toString).sortWith(_ > _)(0)
-    val tenenciaFijaMovilPath = fs.listStatus(new Path(tenenciaFijaMovilBaseLastYear)).filter(_.isDirectory()).map(_.getPath.toString).sortWith(_ > _)(0)
+    val tenenciaFijaMovilLastYear = fs.listStatus(new Path(tenenciaFijaMovilBasePath)).filter(_.isDirectory()).map(_.getPath.toString).sortWith(_ > _)(0)
+    val tenenciaFijaMovilPath = fs.listStatus(new Path(tenenciaFijaMovilLastYear)).filter(_.isDirectory()).map(_.getPath.toString).sortWith(_ > _)(0)
 
     // ---------------------------------------------------------------
     // FIN PARAMETRIZACION
