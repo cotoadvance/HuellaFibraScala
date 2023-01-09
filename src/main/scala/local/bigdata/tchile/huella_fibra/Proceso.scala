@@ -43,7 +43,8 @@ object Proceso {
     val conformadoBasePath = "/modelos/producto_asignado/huella_fibra_b2b/conformado"
     val conformadoFullPath = s"$conformadoBasePath/year=$processYear/month=$processMonth/day=$processDay"
 
-    val inventarioActualBasePath = "/apps/hive/warehouse/stg_prospectos.db/inventario_osp_actual_norm_full/"
+    //val inventarioActualBasePath = "/apps/hive/warehouse/stg_prospectos.db/inventario_osp_actual_norm_full/"
+    val inventarioActualBasePath = "/warehouse/tablespace/external/hive/stg_prospectos.db/inventario_osp_actual_norm_full"
     val inventarioActualPath = fs.listStatus(new Path(inventarioActualBasePath)).filter(_.isDirectory()).map(_.getPath.toString).sortWith(_ > _)(0)
     val direccionesNormalizadasPath = "/warehouse/staging/datalakeb2b/fil_direcciones_normalizadas"
     val parqueFijoSuscriptorProductoBasePath = "/modelos/producto_asignado/parque_fijo_suscriptor_producto_cg/conformado"
